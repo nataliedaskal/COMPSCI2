@@ -17,8 +17,3 @@ if __name__ == "__main__":
     print(randrange(1, 7))
     print(r.random())
     print(import_me.x)
-
-
-
-
-
