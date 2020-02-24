@@ -52,6 +52,22 @@ print("Alice appears", alice_number, "times.")
 
 # 4.  (6pts) Find the most frequently occurring seven letter word in "AliceInWonderLand.txt"
 
+sevenletterword = []
+for i in range(len(word_list)):
+    if len(word_list[i]) == 7:
+        sevenletterword.append(word_list[i].upper())
+max = 0
+most_frequent = -1
+for i in range(len(sevenletterword)):
+    words = 1
+    for n in range(i+1, len(sevenletterword)):
+        if sevenletterword[n] == sevenletterword[i]:
+            words += 1
+        if (max < words):
+            max = words
+            most_frequent = sevenletterword[i]
+print("The most frequently occurring seven letter word is", most_frequent)
+
 
 # 5.  (2pts, small points challenge problem)
 # How many times does "Cheshire" occur in"AliceInWonderLand.txt"?
