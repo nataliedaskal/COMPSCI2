@@ -42,10 +42,10 @@ for i in range(1):
 #6  Write your own question that you have about the data and provide an answer (4pts)
 # Maybe something like: "Who is the oldest player of all time?"  or "Who played the most games?"  or "Who has the most combined blocks and steals?".
 
-#  Who is the oldest player of all time?
-data.sort(key=lambda x: x[4], reverse = True)
+#  Who has the most assists in a single season of all time?
+data.sort(key=lambda x: x[-6], reverse = True)
 for i in range(1):
-    print(data[i][2], "is the oldest player of all time.")
+    print(data[i][2], "has the most assists in a single season of all time.")
 
 
 #7  Big challenge, few points.  Of the 100 highest scoring single seasons in NBA history, which player has the
