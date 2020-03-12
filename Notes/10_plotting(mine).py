@@ -14,10 +14,10 @@ y1 = [y ** 2 for y in x1]
 plt.plot(x1, y1, color='green', marker='*', markersize=10, linestyle='--', alpha=0.5, label="myPlot")
 
 # title axes label unit number key (TALUNK)
-plt.xlabel('')
-
-
-
+plt.xlabel('time (seconds)')
+plt.ylabel('excitement level (YAYS)')
+plt.title('Example Plot')
+plt.axis([0, 11, 0, 120])  # [xmin, xmax, ymin, ymax])
 
 
 plt.show()  # opens the window/plot
