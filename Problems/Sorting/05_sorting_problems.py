@@ -7,8 +7,13 @@ For all answers, show your work
 Use combinations of sorting, list comprehensions, filtering or other techniques to get the answers.
 '''
 
+
 from NBAStats import *
 print(data[0])
+from NBAStats import data
+header = data.pop(0)
+print(header)
+
 
 #1  Pop off the first item in the list and print it.  It contains the column headers. (1pt)
 print(data.pop(0))
@@ -19,12 +24,16 @@ data.sort(key=lambda x: x[-1], reverse = True)
 for i in range(10):
     print(data[i][2])
 
+
 #3  How many career points did Kobe Bryant have? Add up all of his seasons. (4pts)
 kobe_bryant = 0
 for i in range(len(data)):
     if data[i][2] == "Kobe Bryant":
         kobe_bryant += int(data[i][-1])
 print("Kobe Bryant had", kobe_bryant,"career points.")
+
+print(int(sum([x[-1] for x in data if x[2] == "Kobe Bryant"])))
+
 
 #4  What player has the most 3point field goals in a single season. (3pts)
 data.sort(key=lambda x: x[34], reverse=True)
@@ -34,6 +43,10 @@ print(data[0][2], "had the most three point field goals in one season.")
 #  WS attempts to divvy up credit for team success to the individuals on the team.
 #  WS/48 is also in this data.  It measures win shares per 48 minutes (WS per game).
 #  Who has the highest WS/48 season of all time? (4pts)
+ws = header.index("WS")
+print(ws)
+data.sort(key=lambda x: x[ws])
+print(data[-1][2])
 
 data.sort(key=lambda x: x[25], reverse = True)
 for i in range(1):
@@ -59,12 +72,6 @@ for i in range(1):
 data.sort(key=lambda x: x[33], reverse=True)
 for i in range(1):
     print(data[i][2], "has the best free throw percentage of the 100 highest scoring single NBA seasons.")
-
-
-
-
-
-
 
 
 
