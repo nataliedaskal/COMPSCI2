@@ -16,6 +16,7 @@ It has been updated with 2018 data, but not yet with 2019 unfortunately
 '''
 
 import csv
+<<<<<<< HEAD
 import matplotlib.pyplot as plt
 
 
@@ -59,3 +60,29 @@ their carbon footprint. A decrease in bus usage could have something to do with 
 that make bus travel times worse. 
 
 '''
+=======
+
+with open("CTA_-_Ridership_-_Annual_Boarding_Totals (1).csv") as f:
+    cr = csv.reader(f)
+    data = list(cr)
+
+print(data)
+
+
+# pop header
+# get last 10 years (years)
+# get last 10 years bus
+# get last 10 years rail
+# get last 10 years total
+
+# plot bus
+# plot rail
+# plot total
+
+# axis
+# labels
+# title
+# legend (label plots)
+
+# show plot
+>>>>>>> 729df7b42a237934c57ac059eb2373f61b5423c2
