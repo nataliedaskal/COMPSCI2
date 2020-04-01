@@ -56,7 +56,7 @@ sqft = [int(x[sqft_index]) for x in valid_data]
 
 plt.figure(1, tight_layout=True)
 
-plt.scatter(sqft, ghg, alpha=0.3, c=color)  # s for size, c for color (arrays
+plt.scatter(sqft, ghg, alpha=0.3, c=color)  # s for size, c for color
 plt.legend()
 
 plt.show()
