@@ -38,4 +38,58 @@ Maybe you can try one of the following or think up your own:
 Note 2:  This is a tough assignment to do on your own.  Do your best with what you have.  We will do
 '''
 
+import csv
+import matplotlib.pyplot as plt
+import numpy as np
 
+with open("Chicago_Energy_Benchmarking.csv") as f:
+    reader = csv.reader(f, delimiter="\t")
+    data = list(reader)
+
+
+header = data.pop(0)
+print(header)
+
+
+building_sf = []
+total_greenhouse = []
+names = []
+
+data = [x for x in data if x[0] == "2018" and x[9] == "K-12 School"]
+
+for school in data:
+    try:
+        total = float(school[24])
+        building = float(school[10])
+        name = school[2]
+        total_greenhouse.append(total)
+        building_sf.append(building)
+        names.append(name)
+    except:
+        print(school[2], "invalid data")
+
+print(names)
+
+plt.figure("Chicago School GHG Emissions", figsize=(12, 6))
+plt.scatter(building_sf, total_greenhouse)
+
+plt.ylabel("Total Greenhouse Gas (GHG) Emissions")
+plt.xlabel("Building Square Footage")
+plt.title("Total GHG Emissions v. Building Sqaure Footage")
+plt.grid(color="gray")
+
+plt.annotate("Francis W Parker School", xy=(50, 50))
+
+for i in range(len(names)):
+    plt.annotate(names[i], xy=(building_sf[i], total_greenhouse[i]))
+
+p = np.polyfit(building_sf, total_greenhouse, 1)
+print(p)
+
+x = [x for x in range(1000000)]
+y = [p[0] * y + p[1] for y in x]
+
+plt.plot(x, y)
+
+
+plt.show()
