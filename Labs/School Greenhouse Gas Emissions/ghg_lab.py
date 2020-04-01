@@ -43,7 +43,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 with open("Chicago_Energy_Benchmarking.csv") as f:
-    reader = csv.reader(f, delimiter="\t")
+    reader = csv.reader(f, delimiter=",")
     data = list(reader)
 
 
@@ -56,6 +56,7 @@ total_greenhouse = []
 names = []
 
 data = [x for x in data if x[0] == "2018" and x[9] == "K-12 School"]
+print(len(data))
 
 for school in data:
     try:
