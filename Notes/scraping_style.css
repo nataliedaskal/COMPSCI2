@@ -1,5 +1,5 @@
 
-/* Comment in CSS*/
+/* Comment in CSS */
 
 p {
     background-color: lightblue;
@@ -13,6 +13,14 @@ li {
     border: 2px solid black;
 }
 
-# para 2 {
+#para2 {
+    color: orange;
+}
 
+.lightgreen {
+    background-color: lightgreen;
+}
+
+.highlight {
+    background-color: yellow;
 }
