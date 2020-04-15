@@ -9,7 +9,6 @@
 
 #  print("{} {}!".format("Hello", "World"))
 
-
 # Weather Scraping (15pts)
 # Below is a link to a 10-day weather forecast at weather.com
 # Pick the weather for a city that has the first letter as your name.
@@ -22,6 +21,3 @@
 # Sample sentence:
 # Wednesday, April 4 will be Partly Cloudy/Windy with a High of 37 degrees and a low of 25, humidity at 52%.  There is 0% chance of rain with winds out of the WNW at 22 mph.
 # if the sentence is a little different than shown, that will work; do what you can.  Don't forget about our friend string.format()
-
-
-
