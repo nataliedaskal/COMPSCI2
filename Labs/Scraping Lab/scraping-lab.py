@@ -7,19 +7,26 @@
 # Print the tweets in a nicely formatted way.
 # Have fun.  Again, nothing explicit.
 
+print("@GCTigerTracker's five most recent tweets")
+print("")
+
 from bs4 import BeautifulSoup
 import requests
 
-url = "https://twitter.com/GCTigerTracker"
+url = "https://twitter.com/gctigertracker"  # uniform resource locator
 
 page = requests.get(url)
-print(page)
 
 soup = BeautifulSoup(page.text, "html.parser")
-print(soup.prettify())
 
-span_class= soup.find("span class")  # look for the <title> and returns the first one
-print(span_class)
+tweet = soup.findAll(class_="tweet-text")
+tweets = []
+for i in tweet:
+    tweets.append(i.text)
+
+for i in range(5):
+    print("Tweet number", i + 1, ":")
+    print(tweets[i])
 
 
 #  print("{} {}!".format("Hello", "World"))
@@ -36,4 +43,57 @@ print(span_class)
 # Sample sentence:
 # Wednesday, April 4 will be Partly Cloudy/Windy with a High of 37 degrees and a low of 25, humidity at 52%.  There is 0% chance of rain with winds out of the WNW at 22 mph.
 # if the sentence is a little different than shown, that will work; do what you can.  Don't forget about our friend string.format()
-folium.Marker(location=[41.923000, -87.638461], popup="Our School")
+
+print("")
+print("Nantucket, MA 10-Day Weather Report")
+print("")
+
+from bs4 import BeautifulSoup
+import requests
+
+url = "https://weather.com/weather/tenday/l/8cf50ada9067513e696ed4c448e8d583a20f080987d1b27f3979b6d0c22caf1d"
+
+page = requests.get(url)
+soup = BeautifulSoup(page.text, "html.parser")
+
+days = []
+day = soup.findAll(class_="date-time")
+for day in day:
+    days.append(day.text)
+
+dates = []
+date = soup.findAll(class_="day-detail clearfix")
+for date in date:
+    dates.append(date.text)
+
+descriptions = []
+titles = []
+description = soup.findAll(class_="description")
+for description in description[1:]:
+    descriptions.append(description)
+for i in range(len(descriptions)):
+    title = descriptions[i].get("title")
+    titles.append(title)
+
+temperatures = []
+temperature = soup.findAll(class_="temp")
+for temperature in temperature[1:]:
+    temperatures.append(temperature.text)
+
+precipitation = []
+precip = soup.findAll(class_="precip")
+for precip in precip[1:]:
+    precipitation.append(precip.text)
+
+winds = []
+wind = soup.findAll(class_="wind")
+for wind in wind[1:]:
+    winds.append(wind.text)
+
+humidities = []
+humidity = soup.findAll(class_="humidity")
+for humidity in humidity[1:]:
+    humidities.append(humidity.text)
+
+for i in range(10):
+    print(days[i] + ",", dates[i] + ":", titles[i], "High temperature of", temperatures[i][0:3] + "F.", "Low temperature of", temperatures[i][3:] + "F.", precipitation[i], "chance of rain. Winds to the",  winds[i][0:3], "at" + winds[i][3:-1] + ". " + humidities[i], "humidity.")
