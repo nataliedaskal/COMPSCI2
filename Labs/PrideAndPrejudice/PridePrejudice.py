@@ -34,7 +34,7 @@ wordlist = [x.upper().strip(' ?.:;!\\<>{}\n\t') for x in wordlist]
 
 print(wordlist[:1000])
 
-# CHALLENGE (OPTIONAl
+# CHALLENGE (OPTIONAl)
 # Here is a list of the 1000 most common words in English: https://gist.githubusercontent.com/deekayen/4148741/raw/98d35708fa344717d8eee15d11987de6c8e26d7d/1-1000.txt
 # Make your plot show the 25 most common words in Hamlet NOT in this list.
 
